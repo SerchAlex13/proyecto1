@@ -13,15 +13,20 @@ class PaginaController extends Controller
 
     public function contacto($codigo = null)
     {    
-        if (!empty($codigo) && $codigo == '1234') {
+        
+
+        if (!empty($codigo) && $codigo == '1234')
+        {
             $nombre_default = 'Invitado';
             $correo_default = 'info@example.com';
-        } else {
+        }
+        else
+        {
             $nombre_default = null;
             $correo_default = null;
         }
         
-        return view('paginas.contacto', compact('nombre_default', 'correo_default'));
+    return view('paginas.contacto', compact('nombre_default', 'correo_default'));
     }
 
     public function recibirFormContacto(Request $request)
@@ -34,6 +39,8 @@ class PaginaController extends Controller
             'correo' => ['required', 'email'],
             'comentario' => 'required',
         ]);
+
+        echo "Funcioné";
 
         //Insertar a DB
         //Redirigir
