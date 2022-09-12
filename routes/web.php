@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaginaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,27 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/landingpage', function () {
-    return view('paginas.landingpage');
-});
-
-Route::get('/contacto/{version_id?}', function ($version_id = null) {
-    
-    $versiones = [
-        'Datos v1',
-        'Datos v2',
-        'Datos v3',
-        'Datos v4',
-    ];
-
-    if (!empty($version_id)) {
-        $version = $versiones[$version_id];
-    } else {
-        $version = null;
-    }
-    
-    return view('paginas.contacto', compact('versiones', 'version'));
-});
+Route::get('/landingpage', [PaginaController::class, 'landingpage']);
+Route::get('/contacto/{codigo?}', [PaginaController::class, 'contacto']);
+Route::post('/recibir-form-contacto', [PaginaController::class, 'recibirFormContacto']);
 
 /*En la carpeta public sólo tener css, js, fonts, img
 para la entrega hacer una carpeta, por ejemplo proy1 y dentro meter lo que hay en public(css, js, fonts, img) y en index.html copiar lo de landingpage.blade.php*/
