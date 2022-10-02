@@ -39,7 +39,7 @@
         <img class="position-absolute top-50 start-50 translate-middle" src="img/icons/web_programming_icon.png" alt="Icon">
     </div>
     <!-- Spinner End -->
-
+    
 
     <!-- Topbar Start -->
     <div class="container-fluid bg-dark p-0 wow fadeIn" data-wow-delay="0.1s">
