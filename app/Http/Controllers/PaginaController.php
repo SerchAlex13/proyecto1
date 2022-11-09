@@ -28,7 +28,7 @@ class PaginaController extends Controller
             $correo_default = null;
         }
         
-    return view('paginas.contacto', compact('nombre_default', 'correo_default'));
+        return view('paginas.contacto', compact('nombre_default', 'correo_default'));
     }
 
     public function recibirFormContacto(Request $request)
