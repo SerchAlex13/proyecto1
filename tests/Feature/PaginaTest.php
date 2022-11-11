@@ -15,7 +15,7 @@ class PaginaTest extends TestCase
      */
     public function test_pagina_contacto()
     {
-        $response = $this->get('/contacto');
+        $response = $this->get('contacto');
 
         $response->assertStatus(200);
         $response->assertSeeText(['Nombre', 'Correo', 'Comentario']);
@@ -44,5 +44,6 @@ class PaginaTest extends TestCase
         $response = $this->get('/contacto/1234');
         $response->assertStatus(200);
         $this->assertEquals('Invitado', $response['nombre_default']);
+        $this->assertEquals('info@example.com', $response['correo_default']);
     }
 }
